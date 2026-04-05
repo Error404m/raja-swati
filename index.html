@@ -357,7 +357,9 @@ height: 100vh;">
 			</footer>
 
 
-
+<audio id="shehnai-audio" loop>
+  <source src="audio/shehnai.mp3" type="audio/mpeg">
+</audio>
 		</div>
 		<!-- END fh5co-page -->
 
@@ -402,6 +404,29 @@ height: 100vh;">
 		inviteLine.innerText =
 			`प्रिय अतिथि, आपकी स्नेहिल उपस्थिति हमारे इस पावन एवं मंगलमय विवाह समारोह को पूर्णता प्रदान करेगी`;
 		}
+
+
+
+		const audio = document.getElementById("shehnai-audio");
+		audio.volume = 0.5;
+
+// Try autoplay
+window.addEventListener("load", () => {
+  const playPromise = audio.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // Autoplay blocked → wait for user interaction
+      document.addEventListener("click", () => {
+        audio.play();
+      }, { once: true });
+
+      document.addEventListener("touchstart", () => {
+        audio.play();
+      }, { once: true });
+    });
+  }
+});
 		
 	</script>
 </body>
