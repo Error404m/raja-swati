@@ -71,11 +71,286 @@ figure {
   background: #F69D9D;
 }
 
+
+
+
+/* HERO COUNTDOWN */
+.hero-countdown {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Each box */
+.countdown-box {
+  min-width: 90px;
+  padding: 15px 12px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+
+  text-align: center;
+
+  box-shadow: 
+    0 8px 25px rgba(0,0,0,0.3),
+    inset 0 0 10px rgba(255,255,255,0.1);
+
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.countdown-box:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* Numbers */
+.countdown-box span {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #fff;
+  font-family: "Montez", cursive;
+
+  text-shadow: 
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(246,157,157,0.8);
+}
+
+/* Labels */
+.countdown-box small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+}
+
+/* Animation glow */
+.countdown-box span {
+  animation: glowTimer 2s ease-in-out infinite alternate;
+}
+
+@keyframes glowTimer {
+  from {
+    text-shadow: 
+      0 0 10px rgba(255,255,255,0.6),
+      0 0 20px rgba(246,157,157,0.5);
+  }
+  to {
+    text-shadow: 
+      0 0 20px rgba(255,255,255,1),
+      0 0 40px rgba(246,157,157,1);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .countdown-box {
+    min-width: 70px;
+    padding: 10px;
+  }
+
+  .countdown-box span {
+    font-size: 1.8rem;
+  }
+}
+
+
+
 #fh5co-header {
   position: relative;
   margin-bottom: 0;
   z-index: 9999999;
 }
+
+/* HERO COUNTDOWN (BIG & BEAUTIFUL) */
+.fh5co-hero .countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Each time box */
+.fh5co-hero .countdown span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  padding: 20px 25px;
+  min-width: 110px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* BIG NUMBERS */
+.fh5co-hero .countdown span::before {
+  content: attr(id);
+  display: none; /* hide id text */
+}
+
+#days,
+#hours,
+#minutes,
+#seconds {
+  font-size: 80px;   /* 🔥 BIG */
+  font-weight: 700;
+  color: #fff;
+  font-family: "Montez", cursive;
+  line-height: 1;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+
+/* SECTION BEAUTY */
+#fh5co-couple {
+  background: linear-gradient(to bottom, #fff, #fdf6f6);
+}
+
+/* Center text styling */
+.heading-section {
+  margin-top: 20px;
+}
+
+/* SHREE */
+.heading-section h2:first-child {
+  font-size: 40px;
+  color: #d4af37; /* gold */
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+/* GUEST NAME (MAIN HERO TEXT) */
+#guest-name {
+  font-size: 60px;
+  font-family: "Montez", cursive;
+  color: #F69D9D;
+  margin: 10px 0;
+
+  text-shadow: 0 4px 20px rgba(246,157,157,0.5);
+  animation: fadeGlow 2s ease-in-out infinite alternate;
+}
+
+/* DATE */
+.heading-section h2:last-of-type {
+  font-size: 35px;
+  color: #444;
+  margin-top: 15px;
+}
+
+/* TEXT */
+.heading-section p {
+  font-size: 18px;
+  color: #777;
+}
+
+/* LOCATION */
+.heading-section strong {
+  font-size: 16px;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+/* GLOW ANIMATION */
+@keyframes fadeGlow {
+  from {
+    text-shadow: 0 0 10px rgba(246,157,157,0.4);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(246,157,157,0.9);
+  }
+}
+
+/* COUPLE IMAGE IMPROVEMENT */
+#fh5co-couple img {
+  border: 5px solid #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease;
+}
+
+#fh5co-couple img:hover {
+  transform: scale(1.05);
+}
+
+/* HEART */
+.amp-center {
+  color: #F69D9D;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  #guest-name {
+    font-size: 40px;
+  }
+
+  .heading-section h2:first-child {
+    font-size: 28px;
+  }
+}
+
+
+/* Labels under numbers */
+/* #days::after { content: "Days"; }
+#hours::after { content: "Hours"; }
+#minutes::after { content: "Minutes"; }
+#seconds::after { content: "Seconds"; } */
+
+#days::after,
+#hours::after,
+#minutes::after,
+#seconds::after {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  color: rgba(255,255,255,0.8);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Glow animation (subtle) */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+  50% { text-shadow: 0 0 25px rgba(255,255,255,0.7); }
+  100% { text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+}
+
+#days, #hours, #minutes, #seconds {
+  animation: glow 2.5s infinite ease-in-out;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  #days,
+  #hours,
+  #minutes,
+  #seconds {
+    font-size: 50px;
+  }
+
+  .fh5co-hero .countdown span {
+    min-width: 80px;
+    padding: 15px;
+  }
+}
+
+
 
 .stuck {
   position: fixed !important;
@@ -248,7 +523,7 @@ figure {
   box-shadow: none;
   border: transparent;
   min-width: 12em;
-  *width: 12em;
+  width: 12em;
 }
 
 .sf-menu a {
@@ -307,7 +582,7 @@ figure {
 
 .sf-arrows .sf-with-ul {
   padding-right: 2.5em;
-  *padding-right: 1em;
+  padding-right: 1em;
 }
 
 .sf-arrows .sf-with-ul:after {
@@ -1063,7 +1338,7 @@ figure {
   display: -moz-inline-stack;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
   width: 30px;
   height: 2px;
   color: #fff;
@@ -1261,4 +1536,199 @@ figure {
   height: 100%;
   z-index: 9999;
   background: url(../images/hourglass.svg) center no-repeat #222222;
+}
+
+
+/* ===============================
+   ROYAL TIMELINE
+================================= */
+
+#fh5co-timeline {
+  background: linear-gradient(to bottom, #fff, #fff5f5);
+}
+
+.timeline {
+  position: relative;
+  margin: 50px auto;
+  padding: 20px 0;
+  width: 90%;
+}
+
+/* center line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background: linear-gradient(to bottom, #d4af37, #f69d9d);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+/* left side */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+/* right side */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+/* dot */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  border: 3px solid #d4af37;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* dot position */
+.timeline-item:nth-child(odd)::before {
+  right: -9px;
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -9px;
+}
+
+/* content box */
+.timeline-content {
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(5px);
+}
+
+/* date */
+.timeline-date {
+  font-family: "Montez", cursive;
+  font-size: 26px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+/* headings */
+.timeline-content h3 {
+  font-size: 28px;
+  color: #444;
+}
+
+/* highlight wedding day */
+.timeline-item.highlight .timeline-content {
+  background: linear-gradient(135deg, #fff, #ffeaea);
+  border: 2px solid #f69d9d;
+  transform: scale(1.05);
+}
+
+/* location */
+.timeline-location {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    text-align: left !important;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-item::before {
+    left: 0 !important;
+  }
+}
+
+
+
+
+/* ===============================
+   REGARDS SECTION (ROYAL STYLE)
+================================= */
+
+#fh5co-regards {
+  background: linear-gradient(to bottom, #fff, #fdf3f3);
+  padding: 60px 0;
+}
+
+/* Heading */
+#fh5co-regards .heading-section h2 {
+  font-size: 40px;
+  color: #d4af37; /* gold */
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+#fh5co-regards .heading-section p {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/* Names */
+.regards-list h3 {
+  font-family: "Montez", cursive;
+  font-size: 28px;
+  color: #444;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.regards-list h3:hover {
+  transform: scale(1.05);
+  color: #F69D9D;
+}
+
+/* Younger names */
+.regards-young {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+/* subtle divider */
+.regards-list::before {
+  content: "❖";
+  display: block;
+  font-size: 22px;
+  color: #d4af37;
+  margin: 20px 0;
+}
+
+
+
+@media (max-width: 768px) {
+  .fh5co-cover {
+    background-position: 60% center !important;
+  }
 }
