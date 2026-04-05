@@ -750,6 +750,11 @@
 </div>
 </div>
 
+
+<script src="https://unpkg.com/sanscript@1.2.0/sanscript.min.js"></script>
+
+
+
 <script>
   // Parse guest name from URL
   function getGuestName() {
@@ -768,14 +773,14 @@
   function setGuestName() {
     const name = getGuestName();
     const el = document.getElementById('guest-name');
+    console.log('Parsed guest name:', name);
+
     if (name && name.trim()) {
-      el.textContent = name;
-      el.style.fontFamily = "'Cinzel Decorative', cursive";
-      // If name contains Hindi chars, use Devanagari font
-      if (/[ऀ-ॿ]/.test(name)) {
-        el.style.fontFamily = "'Noto Serif Devanagari', serif";
-        el.style.fontSize = '1.6rem';
-      }
+      const hindiName = Sanscript.t(name, 'itrans', 'devanagari');
+      el.textContent = hindiName;
+
+      el.style.fontFamily = "'Noto Serif Devanagari', serif";
+      el.style.fontSize = '1.6rem';
     }
   }
 
