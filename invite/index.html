@@ -555,6 +555,50 @@
     opacity: 0.8;
   }
 
+
+  .guest-name {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: 2rem;
+  color: #6B0000;
+  display: inline-block;
+  margin: 10px 0 6px;
+  padding: 6px 18px;
+
+  background: linear-gradient(135deg, #FFF5CC, #F5E6B8);
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: 30px;
+
+  box-shadow: 
+    0 4px 15px rgba(201,168,76,0.25),
+    inset 0 0 10px rgba(255,255,255,0.6);
+
+  text-shadow: 0 1px 2px rgba(139,0,0,0.2);
+
+  animation: glowName 2.5s ease-in-out infinite alternate;
+}
+
+
+@keyframes glowName {
+  from {
+    box-shadow: 
+      0 0 10px rgba(201,168,76,0.3),
+      inset 0 0 10px rgba(255,255,255,0.5);
+  }
+  to {
+    box-shadow: 
+      0 0 25px rgba(232,201,122,0.8),
+      inset 0 0 15px rgba(255,255,255,0.8);
+  }
+}
+
+
+.guest-subline {
+  font-size: 0.9rem;
+  color: #C9A84C;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
   @media (max-width: 600px) {
     .main-title { font-size: 1.6rem; letter-spacing: 2px; }
     .greeting-section { padding: 25px 25px; }
@@ -751,6 +795,7 @@
 </div>
 
 
+
 <script src="https://unpkg.com/sanscript@1.2.0/sanscript.min.js"></script>
 
 <script>
@@ -776,18 +821,27 @@
     return data[0][0][0];
   }
 
-  async function setGuestName() {
+ 
+    function setGuestName() {
     const name = getGuestName();
     const el = document.getElementById('guest-name');
 
     if (name && name.trim()) {
       try {
-        const hindiName = await translateToHindi(name);
-        el.textContent = hindiName;
+        const words = name.split(" ");
+
+        const hindiWords = words.map(word => 
+          Sanscript.t(word.toLowerCase(), 'hk', 'devanagari', { syncope: true })
+        );
+
+        const hindiName = hindiWords.join(" ");
+
+        el.textContent ="✨ ${hindiName} ✨";
 
         el.style.fontFamily = "'Noto Serif Devanagari', serif";
         el.style.fontSize = '1.6rem';
       } catch (e) {
+        console.error(e);
         el.textContent = name;
       }
     }
