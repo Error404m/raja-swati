@@ -661,9 +661,10 @@
     <!-- PERSONAL GREETING -->
     <div class="greeting-section">
       <p class="greeting-text">
+        <span class="guest-name" id="guest-name">अतिथि देवो भव (सपरिवार)</span><br>
+        <!-- <span class="sapariwar">— सपरिवार —</span><br> -->
         आपकी शुभ उपस्थिति से<br>
-        <span class="guest-name" id="guest-name">अतिथि देवो भव</span>
-        <span class="sapariwar">— सपरिवार —</span>
+    
       </p>
       <div style="margin-top: 15px; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text-brown); font-style: italic;">
         के शुभागमन से यह मंगल कार्य पवित्र होगा
@@ -796,10 +797,12 @@
 
 
 
-<script src="https://unpkg.com/sanscript@1.2.0/sanscript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sanscript@1.2.0/sanscript.min.js"></script>
+
 
 <script>
   // Parse guest name from URL
+  console.log(window.Sanscript);
   function getGuestName() {
     const params = new URLSearchParams(window.location.search);
     const invitation = params.get('invitation');
