@@ -754,7 +754,21 @@
 <script src="https://unpkg.com/sanscript@1.2.0/sanscript.min.js"></script>
 
 <script>
-  async function translateToHindi(text) {
+  // Parse guest name from URL
+  function getGuestName() {
+    const params = new URLSearchParams(window.location.search);
+    const invitation = params.get('invitation');
+    if (invitation) {
+      // Replace hyphens with spaces and decode
+      return decodeURIComponent(invitation.replace(/-/g, ' '));
+    }
+    // Also check hash
+    const hash = window.location.hash.replace('#', '');
+    if (hash) return decodeURIComponent(hash.replace(/-/g, ' '));
+    return null;
+  }
+
+    async function translateToHindi(text) {
     const res = await fetch(
       `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=hi&dt=t&q=${encodeURIComponent(text)}`
     );
@@ -780,8 +794,7 @@
   }
 
   setGuestName();
+  
 </script>
-
-
 </body>
 </html>
